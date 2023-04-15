@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<br>
+<div class="card mb-3" style="max-width: 840px;">
+    <div class="row no-gutters">
+      <div class="col-md-4" style="background-color: #150B38;">
+        <img src="{{ object.image_url }}" class="card-img">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="background-color: #150B38;">
+          <h4 class="card-title" style="color: #F6F6F6;">{{ object.title }}</h4>
+          <p class="card-text" style="color: #F6F6F6;">Author: {{ object.author }}</p><hr>
+          <p class="card-text" style="color: #F6F6F6;">{{ object.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p><a href="{{ object.follow_author }}">Follow Artist</a> </p>
+<p style="color: bisque;">Buy Merch: Rs{{ object.price|floatformat:2 }} </p>
+
+
+{% if object.book_available is True %}
+<a href="https://www.musicgateway.com/blog/music-business/merchandise-websites" class="btn btn-outline-success" role="button">Buy Merch</a>
+{% else %}
+<h4 class="text-danger">Not Available !</h4>
+{% endif %}
+
+{% endblock content %}
+
